@@ -1,0 +1,34 @@
+name: notify
+
+# Starts the consumers' workflows when an asset changes, so they pick it up
+# right away. Needs the secret DISPATCH_TOKEN: a fine-grained token for the
+# listed repositories with the permission "Actions: Read and write".
+on:
+  push:
+    branches: [main]
+    paths: [ascii/**, .github/workflows/notify.yml]
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - repo: pixelspringer/.github
+            workflow: sync-logo.yml
+          - repo: pixelspringer/zwiebellook-data
+            workflow: publish.yml
+    steps:
+      - name: Start ${{ matrix.workflow }} in ${{ matrix.repo }}
+        env:
+          GH_TOKEN: ${{ secrets.DISPATCH_TOKEN }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::error::Secret DISPATCH_TOKEN is missing, see the comment at the top of this workflow."
+            exit 1
+          fi
+          gh workflow run "${{ matrix.workflow }}" --repo "${{ matrix.repo }}" --ref main
