@@ -2,15 +2,11 @@
 
 Brand assets of pixelspringer, the single source for websites, profiles and tools.
 
-| Path                               | Content                     |
-| ---------------------------------- | --------------------------- |
-| [`ascii/logo.txt`](ascii/logo.txt) | Logo as plain text (ASCII). |
+Consumers load files from their raw URL.
 
-Consumers load files from the raw URL, for example:
-
-```text
-https://raw.githubusercontent.com/pixelspringer/brands/main/ascii/logo.txt
-```
+| Path                               | Content                     | Raw URL                                                                                                                                                    |
+| ---------------------------------- | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`ascii/logo.txt`](ascii/logo.txt) | Logo as plain text (ASCII). | [`https://raw.githubusercontent.com/pixelspringer/brands/main/ascii/logo.txt`](https://raw.githubusercontent.com/pixelspringer/brands/main/ascii/logo.txt) |
 
 Current consumers:
 
