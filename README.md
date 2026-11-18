@@ -14,3 +14,7 @@ Current consumers:
 - [`pixelspringer/zwiebellook-data`](https://github.com/pixelspringer/zwiebellook-data) embeds it as an HTML comment in the index page of data.zwiebellook.de.
 
 Changing a path here breaks these consumers.
+
+## License
+
+Brand assets, not open source. See [LICENSE](LICENSE).
